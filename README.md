@@ -1,7 +1,7 @@
 
 # Distributed multi-Agent Reinforcement Learning with One-hop Neighbors (DARL1N)
 
-This is the code base  for implementing the DARL1N algorithm presented in the paper: [Distributed multi-Agent Reinforcement Learning with One-hop Neighbors]. This repository includes implementaions of four algorithms including DARL1N, [Evoluationary Population Curriculum](https://openreview.net/forum?id=SJxbHkrKDH) (EPC), [Multi-Agent Deep Deterministic Policy Gradient](https://arxiv.org/pdf/1706.02275.pdf) (MADDPG) , and [Mean Field Actor Critic](https://arxiv.org/abs/1802.05438) (MFAC). The original implementaions of EPC, MFAC are contained in this [repository](https://github.com/qian18long/epciclr2020), and MADDPG is in this [repository](https://github.com/openai/maddpg).
+This is the code base  for implementing the DARL1N algorithm presented in the paper: [Distributed multi-Agent Reinforcement Learning with One-hop Neighbors](https://arxiv.org/abs/2202.09019) (DARL1N). This repository includes implementaions of four algorithms including DARL1N, [Evoluationary Population Curriculum](https://openreview.net/forum?id=SJxbHkrKDH) (EPC), [Multi-Agent Deep Deterministic Policy Gradient](https://arxiv.org/pdf/1706.02275.pdf) (MADDPG) , and [Mean Field Actor Critic](https://arxiv.org/abs/1802.05438) (MFAC). The original implementaions of EPC, MFAC are contained in this [repository](https://github.com/qian18long/epciclr2020), and MADDPG is in this [repository](https://github.com/openai/maddpg).
 
 
 ## Dependancies:
@@ -145,3 +145,266 @@ Most options are same with training command line options. Here are other options
 - `./amazon_scripts`: directory that contains scripts to coordinate the distributed computing system and run DARL1N algorithm on Amazon EC2.
 
 - `./result`: directory that contains weights for each method in each environments.
+
+
+## Demo
+### Ising model (9 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/9%20agents/maddpg.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/9%20agents/mf.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/9%20agents/epc.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/9%20agents/darl1n.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+### Ising model (16 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/16%20agents/maddpg.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/16%20agents/mf.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/16%20agents/epc16_ising_model.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/16%20agents/darl1n.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+ 
+### Ising model (25 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/25%20agents/maddpg.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/25%20agents/mf25.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/25%20agents/epc25_ising_model.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/25%20agents/darl1n.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+ 
+ ### Ising model (64 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/64%20agents/maddpg.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/64%20agents/mean_field_local64_ising_model.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/64%20agents/epc64_ising_model.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/ising/64%20agents/darl1n64_ising_model.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+  ### Food collection (3 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/maddpg/3%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/mf/3%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/epc/3%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/darl1n/3%20agents/208.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+ 
+   ### Food collection (6 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/maddpg/6%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/mf/6%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/epc/6%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/darl1n/6%20agents/208.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Food collection (12 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/maddpg/12%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/mf/12%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/epc/12%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/darl1n/12%20agents/208.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Food collection (24 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/maddpg/24%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/mf/24%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/epc/24%20agents/208.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/simple_spread/darl1n/24%20agents/208.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+  ### Grassland (6 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/maddpg/6%20agents/26.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/mf/6%20agents/26.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/epc/6%20agents/26.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/darl1n/6%20agents/26.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+ 
+   ### Grassland (12 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/maddpg/12%20agents/31.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/mf/12%20agents/31.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/epc/12%20agents/31.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/darl1n/12%20agents/31.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Grassland (24 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/maddpg/24%20agents/36.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/mf/24%20agents/36.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/epc/24%20agents/36.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/darl1n/24%20agents/36.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Grassland (48 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/maddpg/48%20agents/41.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/mf/48%20agents/41.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/epc/48%20agents/41.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/grassland/darl1n/48%20agents/41.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Adversarial (6 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/aaai21_darl1n/blob/0829_add_demo/demos/adversarial/maddpg/6%20agents/26.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/aaai21_darl1n/blob/0829_add_demo/demos/adversarial/mf/6%20agents/26.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/aaai21_darl1n/blob/0829_add_demo/demos/adversarial/epc/6%20agents/26.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/aaai21_darl1n/blob/0829_add_demo/demos/adversarial/darl1n/6%20agents/26.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+ 
+   ### Adversarial (12 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/maddpg/12%20agents/31.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/mf/12%20agents/31.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/epc/12%20agents/31.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/darl1n/12%20agents/31.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Adversarial (24 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/maddpg/24%20agents/36.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/mf/24%20agents/36.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/epc/24%20agents/36.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/darl1n/24%20agents/36.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
+ 
+   ### Adversarial (48 agents)
+<table>
+  <tr>
+    <td>MADDPG</td>
+     <td>MFAC</td>
+     <td>EPC</td>
+    <td>DARL1N</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/maddpg/48%20agents/41.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/mf/48%20agents/41.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/epc/48%20agents/41.gif" width="270" height="200" /></td>
+    <td><img src="https://github.com/BaoqianWang/IROS22_DARL1N/blob/master/demos/adversarial/darl1n/48%20agents/41.gif" width="270" height="200" /></td>
+  </tr>
+ </table>
