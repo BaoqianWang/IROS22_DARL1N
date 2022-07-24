@@ -125,8 +125,10 @@ class World(object):
         p_force = [None] * len(self.entities)
         # apply agent physical controls
         p_force = self.apply_action_force(p_force)
+        print('p_force_before', p_force)
         # apply environment forces
         p_force = self.apply_environment_force(p_force)
+        print('p_force_after', p_force)
         # integrate physical state
         self.integrate_state(p_force)
         # update agent state
@@ -195,6 +197,7 @@ class World(object):
     def get_collision_force(self, entity_a, entity_b):
         if (not entity_a.collide) or (not entity_b.collide):
             return [None, None] # not a collider
+
         if (entity_a is entity_b):
             return [None, None] # don't collide against itself
         # compute actual distance between entities
@@ -207,8 +210,6 @@ class World(object):
         # softmax penetration
         k = self.contact_margin
         penetration = np.logaddexp(0, -(dist - dist_min)/k)*k
-        if np.isnan(penetration):
-            time.sleep(2000)
         force = self.contact_force * delta_pos / dist * penetration
         force = 0
         force_a = +force if entity_a.movable else None

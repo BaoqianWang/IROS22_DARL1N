@@ -231,7 +231,8 @@ def read_and_renumber(path, i, j):
         dname = name.split('/')
         assert dname[0] == str(i)
         dname[0] = str(j)
-        new_weights['/'.join(dname)] = v
+        new_weights['/'.join(dname)] = v + np.random.normal(0, 0.1, size = v.shape)
+        print('weight value is', v)
     return new_weights
 
 def load_all_weights(load_dir1, load_dir2, n_adv, n_good, last_n_adv, last_n_good):

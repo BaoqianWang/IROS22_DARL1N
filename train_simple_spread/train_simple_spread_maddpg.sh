@@ -1,22 +1,40 @@
 #!/bin/sh
 
-# 3 agents
+# 1 agent
 python3 -m maddpg_o.experiments.train_normal \
     --scenario=simple_spread \
     --good-sight=100.0 \
     --adv-sight=100.0 \
     --num-adversaries=0 \
-    --num-food=3 \
-    --num-agents=3 \
+    --num-food=1 \
+    --num-agents=1 \
     --good-policy=maddpg \
     --adv-policy=maddpg \
-    --save-dir="../result/simple_spread/maddpg/3agents/3agents_1/" \
+    --save-dir="../result/simple_spread/maddpg/1agents/1agents_1/" \
     --save-rate=30 \
     --max-num-train=2000 \
-    --good-max-num-neighbors=3 \
-    --adv-max-num-neighbors=3 \
+    --good-max-num-neighbors=1 \
+    --adv-max-num-neighbors=1 \
     --seed=16 \
     --ratio=1 \
+
+# 3 agents
+# python3 -m maddpg_o.experiments.train_normal \
+#     --scenario=simple_spread \
+#     --good-sight=100.0 \
+#     --adv-sight=100.0 \
+#     --num-adversaries=0 \
+#     --num-food=3 \
+#     --num-agents=3 \
+#     --good-policy=maddpg \
+#     --adv-policy=maddpg \
+#     --save-dir="../result/simple_spread/maddpg/3agents/3agents_1/" \
+#     --save-rate=30 \
+#     --max-num-train=2000 \
+#     --good-max-num-neighbors=3 \
+#     --adv-max-num-neighbors=3 \
+#     --seed=16 \
+#     --ratio=1 \
 
 # 6 agents
 # python3 -m maddpg_o.experiments.train_normal \

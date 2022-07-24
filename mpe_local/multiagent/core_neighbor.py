@@ -119,7 +119,7 @@ class World(object):
     # update state of the world
     def step(self, action_agents):
         self.action_agents = action_agents
-
+        #print('done')
         # set actions for scripted agents
         for agent in self.scripted_agents:
             agent.action = agent.action_callback(agent, self)
@@ -127,8 +127,10 @@ class World(object):
         p_force = [None] * 2*len(self.agents)
         # apply agent physical controls
         p_force = self.apply_action_force(p_force)
+        print('p_force_before', p_force)
         # apply environment forces
         p_force = self.apply_environment_force(p_force)
+        print('p_force_after', p_force)
         # integrate physical state
         self.integrate_state(p_force)
 
@@ -154,7 +156,6 @@ class World(object):
                 if(f_b is not None and j < len(self.action_agents)):
                     if(p_force[self.action_agents[j]] is None): p_force[self.action_agents[j]] = 0.0
                     p_force[self.action_agents[j]] = f_b + p_force[self.action_agents[j]]
-
 
         return p_force
 
@@ -200,6 +201,7 @@ class World(object):
         k = self.contact_margin
         penetration = np.logaddexp(0, -(dist - dist_min)/k)*k
         force = self.contact_force * delta_pos / dist * penetration
+        force = 0
         force_a = +force if entity_a.movable else None
         force_b = -force if entity_b.movable else None
         return [force_a, force_b]

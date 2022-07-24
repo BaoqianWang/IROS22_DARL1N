@@ -73,7 +73,6 @@ class Scenario(BaseScenario):
         distance = np.linalg.norm(all_pos - all_pos[agent_id],axis=1)
         action_agents = list(np.where(distance<=2*(self.prosp_dist+self.good_neigh_dist))[0])
         neighbors = list(np.where(distance<=self.good_neigh_dist)[0])
-        neighbors.remove(agent_id)
         return action_agents, neighbors
 
 
