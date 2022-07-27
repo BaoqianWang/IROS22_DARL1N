@@ -88,9 +88,9 @@ class Scenario(BaseScenario):
         dists = [np.sqrt(np.sum(np.square(agent.state.p_pos - l.state.p_pos))) for l in world.landmarks]
         rew -= min(dists)
 
-        for food in world.landmarks:
-            if self.is_collision(food, agent):
-                rew += 1
+        # for food in world.landmarks:
+        #     if self.is_collision(food, agent):
+        #         rew += 1
 
         for a in world.agents:
             if a == agent: continue
