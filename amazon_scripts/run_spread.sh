@@ -23,7 +23,7 @@ echo "Train DARL1N Food Collection"
 #   host_name_uncoded="${host_name_uncoded},${ARRAY[i]}"
 # done
 #
-# # 3 agents
+# # # 3 agents
 # mpirun --mca plm_rsh_no_tree_spawn 1 --mca btl_base_warn_component_unused 0  --host $host_name_uncoded \
 # python3  -m maddpg_o.experiments.train_darl1n \
 #     --scenario=simple_spread \
@@ -77,32 +77,32 @@ echo "Train DARL1N Food Collection"
 
 
 # # 12 agents
-host_name_uncoded="${ARRAY[1]}"
-for((i=2;i<=13;i++))
-do
-  host_name_uncoded="${host_name_uncoded},${ARRAY[i]}"
-done
-mpirun --mca plm_rsh_no_tree_spawn 1 --mca btl_base_warn_component_unused 0  --host $host_name_uncoded \
-python3  -m maddpg_o.experiments.train_darl1n \
-    --scenario=simple_spread \
-    --good-sight=0.25 \
-    --adv-sight=100.0 \
-    --num-agents=12 \
-    --num-learners=12\
-    --num-adversaries=0 \
-    --num-food=12 \
-    --num-landmark=12\
-    --good-policy=maddpg \
-    --adv-policy=maddpg \
-    --save-dir="../result/simple_spread/darl1n/12agents/12agents_nn/" \
-    --save-rate=30 \
-    --max-num-train=2000\
-    --prosp-dist=0.15 \
-    --eva-max-episode-len=25 \
-    --good-max-num-neighbors=12 \
-    --adv-max-num-neighbors=12 \
-    --ratio=2.0 \
-    --seed=16\
+# host_name_uncoded="${ARRAY[1]}"
+# for((i=2;i<=13;i++))
+# do
+#   host_name_uncoded="${host_name_uncoded},${ARRAY[i]}"
+# done
+# mpirun --mca plm_rsh_no_tree_spawn 1 --mca btl_base_warn_component_unused 0  --host $host_name_uncoded \
+# python3  -m maddpg_o.experiments.train_darl1n \
+#     --scenario=simple_spread \
+#     --good-sight=0.25 \
+#     --adv-sight=100.0 \
+#     --num-agents=12 \
+#     --num-learners=12\
+#     --num-adversaries=0 \
+#     --num-food=12 \
+#     --num-landmark=12\
+#     --good-policy=maddpg \
+#     --adv-policy=maddpg \
+#     --save-dir="../result/simple_spread/darl1n/12agents/12agents_nn/" \
+#     --save-rate=30 \
+#     --max-num-train=2000\
+#     --prosp-dist=0.15 \
+#     --eva-max-episode-len=25 \
+#     --good-max-num-neighbors=12 \
+#     --adv-max-num-neighbors=12 \
+#     --ratio=2.0 \
+#     --seed=16\
 
 
 # 24 agents
@@ -124,7 +124,7 @@ python3  -m maddpg_o.experiments.train_darl1n \
     --num-landmark=24\
     --good-policy=maddpg \
     --adv-policy=maddpg \
-    --save-dir="../result/simple_spread/darl1n/24agents/24agents_nn/" \
+    --save-dir="../result/simple_spread/darl1n/24agents/24agents_nn_128/" \
     --save-rate=30 \
     --max-num-train=2000\
     --prosp-dist=0.2 \

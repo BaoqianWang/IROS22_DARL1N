@@ -153,20 +153,20 @@ def evaluate_policy(evaluate_env, trainers, num_episode, display = False):
 def interact_with_environments(env, trainers, node_id, steps):
     act_d = env.action_space[0].n
     for k in range(steps):
-        obs_pot, neighbor = env.reset(node_id) # Neighbor does not include agent itself
+        obs_n, neighbor = env.reset(node_id) # Neighbor does not include agent itself
 
         action_n = [np.zeros((act_d))] * env.n # Actions for transition
 
         action_neighbor = [np.zeros((act_d))] * arglist.good_max_num_neighbors #The neighbors include the agent itself
         target_action_neighbor = [np.zeros((act_d))] * arglist.good_max_num_neighbors
 
-        self_action = trainers[node_id].action(obs_pot[node_id])
+        self_action = trainers[node_id].action(obs_n[node_id])
 
         action_n[node_id] = self_action
         action_neighbor[0] = self_action
 
         valid_neighbor = 1
-        for i, obs in enumerate(obs_pot):
+        for i, obs in enumerate(obs_n):
             if i == node_id: continue
             if len(obs) !=0 :
                 #print(obs)
@@ -186,9 +186,13 @@ def interact_with_environments(env, trainers, node_id, steps):
             if len(next) != 0 and valid_neighbor < arglist.good_max_num_neighbors:
                 target_action_neighbor[valid_neighbor] = trainers[k].target_action(next)
                 valid_neighbor += 1
+        trainers[node_id].experience(obs_n[node_id], action_neighbor, new_obs_neighbor[node_id], target_action_neighbor, rew)
+        #obs_n = new_obs_neighbor
+
+        # if k % arglist.max_episode_len == 0 and k > 0:
+        #     obs_n = env.reset(node_id)
 
         info_n = 0.1
-        trainers[node_id].experience(obs_pot[node_id], action_neighbor, new_obs_neighbor[node_id], target_action_neighbor, rew)
 
     return
 
